@@ -1,0 +1,12 @@
+/**
+ * Captain!! */
+* {
+    box-sizing: border-box;
+    cursor: inherit;
+    font: inherit;
+    outline: none;
+}
+
+button {
+    font-family: inherit;
+}

@@ -1,0 +1,160 @@
+.row {
+    width: 1920px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.row .row {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: auto;
+    max-width: none;
+}
+.col {
+    padding: 0 10px;
+    min-width: 0;
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+@media screen {
+    .s-hidden {
+        display: none;
+    }
+    .s-auto {
+        display: block;
+        flex: 1;
+    }
+    .s-shrink {
+        display: block;
+        flex: 0 1 auto;
+    }
+    .s-start {
+        align-self: flex-start;
+    }
+    .s-end {
+        align-self: flex-end;
+    }
+    .s-center {
+        align-self: center;
+    }
+    .s-baseline {
+        align-self: baseline;
+    }
+    .s-stretch {
+        align-self: stretch;
+    }
+    .s3 {
+        flex-basis: 25%;
+    }
+    .s4 {
+        flex-basis: 33.3333%;
+    }
+    .s6 {
+        flex-basis: 50%;
+    }
+    .s8 {
+        flex-basis: 66.6667%;
+    }
+    .s9 {
+        flex-basis: 75%;
+    }
+    .s12 {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .m-hidden {
+        display: none;
+    }
+    .m-auto {
+        display: block;
+        flex: 1;
+    }
+    .m-shrink {
+        display: block;
+        flex: 0 1 auto;
+    }
+    .m-start {
+        align-self: flex-start;
+    }
+    .m-end {
+        align-self: flex-end;
+    }
+    .m-center {
+        align-self: center;
+    }
+    .m-baseline {
+        align-self: baseline;
+    }
+    .m-stretch {
+        align-self: stretch;
+    }
+    .m3 {
+        flex-basis: 25%;
+    }
+    .m4 {
+        flex-basis: 33.3333%;
+    }
+    .m6 {
+        flex-basis: 50%;
+    }
+    .m8 {
+        flex-basis: 66.6667%;
+    }
+    .m9 {
+        flex-basis: 75%;
+    }
+    .m12 {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .l-hidden {
+        display: none;
+    }
+    .l-auto {
+        display: block;
+        flex: 1;
+    }
+    .l-shrink {
+        display: block;
+        flex: 0 1 auto;
+    }
+    .l-start {
+        align-self: flex-start;
+    }
+    .l-end {
+        align-self: flex-end;
+    }
+    .l-center {
+        align-self: center;
+    }
+    .l-baseline {
+        align-self: baseline;
+    }
+    .l-stretch {
+        align-self: stretch;
+    }
+    .l3 {
+        flex-basis: 25%;
+    }
+    .l4 {
+        flex-basis: 33.3333%;
+    }
+    .l6 {
+        flex-basis: 50%;
+    }
+    .l8 {
+        flex-basis: 66.6667%;
+    }
+    .l9 {
+        flex-basis: 75%;
+    }
+    .l12 {
+        flex-basis: 100%;
+    }
+}

@@ -1,0 +1,131 @@
+/** temp **/
+
+.jumbotron { display: none; }
+
+/** /temp **/
+
+html,body { height: 100%; }
+html {
+    cursor: url("../images/cursor.png"), crosshair;
+}
+body {
+    font: 14px/1.15 "Orbitron", monospace;
+    background: url('../images/twinkle_twinkle.png'),#1b1b1b;
+    color: #f39200;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.center {
+    text-align: center;
+}
+
+a {
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f39200;
+    padding: 2px;
+    display: inline-block;
+    border: 2px solid;
+    margin: 1px;
+    border-radius: 3.6px;
+    background: #8e6d00;
+}
+
+a:hover {
+    background: #f79e00;
+    border-color: #f39200;
+    color: #000;
+}
+
+header .row .col {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+
+header  .col:not(:last-child) {
+    border-right: 1px solid;
+}
+
+header h2 {
+    font-size: 24px;
+}
+
+footer nav li {
+    display: inline;
+}
+
+footer {
+    border-top: 1px solid;
+    margin: 1em 0;
+    padding: 1em 0;
+    text-align: center;
+}
+
+footer ul::before {
+    content: "B.CNCT: ";
+}
+
+.error,#upload-filelist.error {
+    border-color: #a00;
+}
+.completed,#upload-filelist.completed {
+    border-color: #0a0;
+}
+#upload-filelist.error.completed, .alert {
+    border-color: #a00;
+}
+
+/*a.btn*/#upload-btn {
+    font-size: 60px;
+    display: block;
+    width: 95vw;
+    padding: 2em 0;
+    margin: 0 auto;
+}
+
+/*input[type='file']*/#upload-input {
+    display: none;
+}
+
+/*ul*/#upload-filelist.error.completed::before {
+    content: "SITUATION: NUCLEAR";
+}
+/*ul*/#upload-filelist.error::before {
+    content: "MISSION FAILURE COMRADE";
+}
+/*ul*/#upload-filelist.completed::before {
+    content: "LENIN WOULD BE PROUD";
+}
+/*ul*/#upload-filelist::before, #upload-filelist li.total {
+    font-weight: bold;
+    display: block;
+}
+#upload-filelist li.total .file-size {
+    display: none;
+}
+
+/*ul*/#upload-filelist {
+    margin: 1px;
+    padding: 0 5px;
+    background: #000;
+    color: #ba9600;
+    border: 2px solid;
+}
+#upload-filelist:empty {
+    display: none;
+}
+
+/*ul*/#upload-filelist li span {
+    float: right;
+    margin: 0 25%;
+}
+/*ul*/#upload-filelist li {
+    clear: both;
+    height: 2.5em;
+}
+#upload-filelist li.total {
+    padding-top: 1em;
+}
