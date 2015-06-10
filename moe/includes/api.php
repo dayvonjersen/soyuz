@@ -4,6 +4,23 @@
 // Include core file
 require_once('core.php');
 
+// hahaha oh WOW
+$_GET = array_merge(['email' => null,
+'level' => null,
+'action' => null,
+'date' => null,
+'count' => null,
+'why' => null,
+'file' => null,
+'keyword' => null,
+'fileid' => null,
+'hash' => null,
+'originalname' => null,
+'q' => null,
+'f' => null,
+'delid' => null
+],$_GET);
+
 if(isset($_GET['do'])){
 
 	$butt = $_GET['do'];
@@ -23,7 +40,7 @@ if(isset($_GET['do'])){
 		break;
 
 		case "mod":
-			mod($_GET['action'], $_GET['date'], $_GET['count'], $_GET['why'], $_GET['file'], $_GET['keyword'], $_GET['fileid'], $_GET['hash'], $_GET['orginalname']);
+			mod($_GET['action'], $_GET['date'], $_GET['count'], $_GET['why'], $_GET['file'], $_GET['keyword'], $_GET['fileid'], $_GET['hash'], $_GET['originalname']);
 		break;
 
 		case "cp":
