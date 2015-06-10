@@ -111,7 +111,7 @@ function search ($word) {
 	$do->execute();
 
 	while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
-		print strip_tags($row['originalname']).' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="http://cayootie.pomf.se/user/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
+		print strip_tags($row['originalname']).' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="../includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
 	}
 	
 	//Yes I love not being efficient, deal with it.
@@ -123,13 +123,14 @@ function search ($word) {
 	$do->execute();
 
 	while ($row = $do->fetch(PDO::FETCH_ASSOC)) {
-	print strip_tags($row['originalname']).' - '.'<a href="http://a.pomf.se/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="http://cayootie.pomf.se/user/includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
+	    print strip_tags($row['originalname']).' - '.'<a href="/tmp/'.$row['filename'].'" target="_BLANK">'.$row['filename'].' </a> '.'<a href="../includes/api.php?do=delete&f='.$row['filename'].'" target="_BLANK"> Delete</a><br/>';
 	}
     }
 }
 
 function cfdelete ($file) {
-
+    // wat
+    return;
 	$butts = array(
 	'a' => 'zone_file_purge',
 	'tkn' => 'xxxx',
@@ -152,7 +153,7 @@ function cfdelete ($file) {
 
 function delete ($filename, $deleteid, $mod) {
 	if(empty($filename)){
-	echo "You did something wrong, baka.";
+    	echo "You did something wrong, baka.";
 	}else{
 	global $db;
 	$do = $db->prepare("SELECT filename, delid, id, user FROM files WHERE filename = (:filename)");
@@ -164,7 +165,7 @@ function delete ($filename, $deleteid, $mod) {
 		$do = $db->prepare("DELETE FROM files WHERE id = (:id)");
 		$do->bindParam(':id', $result['id']);
 		$do->execute();
-		unlink('/home/neku/pomf/files/'.$filename);
+		unlink('/srv/pomf/tmp/'.$filename);
 		cfdelete($filename);
 		echo "<br/>File deleted and hopefully deleted from Cloudflares cache in a moment..<br/>";
 	}else{
@@ -206,8 +207,8 @@ function delete ($filename, $deleteid, $mod) {
 					table,th,td{border:1px solid black; border-collapse:collapse;}
 					th,td{padding:5px;}
 					</style></head><body>
-					<p>Keep in mind that this is a alpha version of the mod panel, click <a href="http://cayootie.pomf.se/user/includes/api.php?do=logout">here</a> to logout or <a href="http://cayootie.pomf.se/user/panel" target="_BLANK">here</a> to go to the panel for your personal account.</p>
-					<form action="http://cayootie.pomf.se/user/includes/api.php" method="get">
+					<p>Keep in mind that this is a <s>alpha version of the mod panel</s> <ins>utter dogshit</ins>, click <a href="../includes/api.php?do=logout">here</a> to logout or <a href="../panel" target="_BLANK">here</a> to go to the panel for your personal account.</p>
+					<form action="../includes/api.php" method="get">
 					<input type="hidden" name="do" value="mod">
 					<input type="hidden" name="action" value="fetch">
 					Date: <input type="text" name="date" value="'.date('Y-m-d').'">
@@ -221,9 +222,9 @@ function delete ($filename, $deleteid, $mod) {
  					$i++;
  					echo '<tr><td>'.$row['id'].'</td>
  						 <td>'.strip_tags($row['originalname']).'</td>
- 						 <td><a href="http://a.pomf.se/'.$row['filename'].'" target="_BANK">'.$row['filename'].'</a> ('.$row['originalname'].')</td>
+ 						 <td><a href="/tmp/'.$row['filename'].'" target="_BANK">'.$row['filename'].'</a> ('.$row['originalname'].')</td>
  						 <td>'.$row['size'].'</td>
- 						 <td><a href="http://cayootie.pomf.se/user/includes/api.php?do=mod&action=remove&fileid='.$row['id'].'&file='.$row['filename'].'" target="_BANK">Remove</a></td></tr>';
+ 						 <td><a href="../includes/api.php?do=mod&action=remove&fileid='.$row['id'].'&file='.$row['filename'].'" target="_BANK">Remove</a></td></tr>';
 
  				}
  				echo '</table></body></html>';
@@ -264,7 +265,7 @@ function delete ($filename, $deleteid, $mod) {
  						 <td>'.$row['fileid'].'</td>
  						 <td>'.$row['reporter'].'</td>
  						 <td>'.$row['status'].'</td>
- 						 <td><a href="http://cayootie.pomf.se/user/includes/api.php?do=mod&action=remove&fileid='.$row['fileid'].'&file='.$row['file'].'" target="_BANK">Remove file</a></td></tr>';
+ 						 <td><a href="../includes/api.php?do=mod&action=remove&fileid='.$row['fileid'].'&file='.$row['file'].'" target="_BANK">Remove file</a></td></tr>';
 
  				}
  				echo '</table></body></html>';
@@ -281,7 +282,7 @@ function delete ($filename, $deleteid, $mod) {
 			$do = $db->prepare("DELETE FROM files WHERE id = (:id)");
 			$do->bindParam(':id', $fileid);
 			$do->execute();
-			unlink('/home/neku/pomf/files/'.$file);
+			unlink('/srv/pomf/tmp/'.$file);
 			cfdelete($file);
 			$do = $db->prepare("UPDATE reports SET status = (:status) WHERE fileid = (:fileid)");
 			$do->bindValue(':status', '1');
